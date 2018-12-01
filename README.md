@@ -25,6 +25,7 @@ function fx_admin_notice_example_notice(){
 }
 ```
 
+<hr>
 
 ### Exclude Post from WP_Query if has not Feature image
 ```php
@@ -39,4 +40,16 @@ $thumbs = array(
 );
 
 $custom_query = new WP_Query( $thumbs );
+```
+
+<hr>
+
+### Check if image requested size is exist
+```php
+global $_wp_additional_image_sizes;
+if ( array_key_exists( 'custom-size', $_wp_additional_image_sizes ) ) {
+	the_post_thumbnail( 'custom-size' );
+} else {
+	the_post_thumbnail( 'medium' );
+}
 ```
